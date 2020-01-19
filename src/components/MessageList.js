@@ -20,11 +20,11 @@ const MESSAGES = gql`
 }
 `;
 
-export function MessageList() {
+export const MessageList = () => {
   const { loading, error, data } = useQuery(MESSAGES);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
-  return data.messages.map(message => <MessageItem message={message} />);
+  return data.messages.map(message => <MessageItem key={message.id} message={message} />);
 }
