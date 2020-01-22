@@ -1,7 +1,7 @@
-import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
-import { MessageItem } from './MessageItem';
+import React from 'react'
+import { useQuery } from '@apollo/react-hooks'
+import { gql } from 'apollo-boost'
+import { MessageItem } from './MessageItem'
 
 const MESSAGES = gql`
 {
@@ -18,13 +18,13 @@ const MESSAGES = gql`
     }
   }
 }
-`;
+`
 
 export const MessageList = () => {
-  const { loading, error, data } = useQuery(MESSAGES);
+  const { loading, error, data } = useQuery(MESSAGES)
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error :(</p>
 
-  return data.messages.map(message => <MessageItem key={message.id} message={message} />);
+  return data.messages.map(message => <MessageItem key={message.id} message={message} />)
 }

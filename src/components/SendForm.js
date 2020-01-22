@@ -1,6 +1,6 @@
-import React from 'react';
-import { gql } from 'apollo-boost';
-import { useMutation } from '@apollo/react-hooks';
+import React from 'react'
+import { gql } from 'apollo-boost'
+import { useMutation } from '@apollo/react-hooks'
 
 const ADD_TODO = gql`
   mutation sendMessage($sendMessageInput: SendMessageInput!) {
@@ -17,17 +17,17 @@ const ADD_TODO = gql`
       }
     }
   }
-`;
+`
 
 export const SendForm = () => {
-  let input;
-  const [sendMessage, { data }] = useMutation(ADD_TODO);
+  let input
+  const [sendMessage] = useMutation(ADD_TODO)
 
   return (
     <label>
       <input type='text' ref={node => { input = node }} />
       <button onClick={e => {
-        e.preventDefault();
+        e.preventDefault()
         sendMessage({
           variables: {
             sendMessageInput: {
@@ -36,8 +36,9 @@ export const SendForm = () => {
               receiverId: '2'
             }
           }
-        });
-      }}>
+        })
+      }}
+      >
         Send
       </button>
     </label>

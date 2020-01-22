@@ -1,14 +1,14 @@
-import React from 'react';
-import { MessageList } from './components/MessageList';
-import { SendForm } from './components/SendForm';
+import React from 'react'
+import { MessageList } from './components/MessageList'
+import { SendForm } from './components/SendForm'
 
-function App() {
+function App () {
   return (
-    <div className="App">
+    <div className='App'>
       <MessageList />
       <SendForm />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
