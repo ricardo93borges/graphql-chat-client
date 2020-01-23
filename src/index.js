@@ -4,10 +4,10 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 
 import { ApolloProvider } from '@apollo/react-hooks'
-import { api } from './api'
+import { client } from './api'
 
 ReactDOM.render(
-  <ApolloProvider client={api}>
+  <ApolloProvider client={client}>
     <App />
   </ApolloProvider>,
   document.getElementById('root')

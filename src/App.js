@@ -1,12 +1,12 @@
 import React from 'react'
 import "milligram"
-import { MessageList } from './components/MessageList'
+import { Chat } from './components/Chat'
 import { SendForm } from './components/SendForm'
 
 function App() {
   return (
     <div className='App'>
-      <MessageList />
+      <Chat />
       <SendForm />
     </div>
   )
