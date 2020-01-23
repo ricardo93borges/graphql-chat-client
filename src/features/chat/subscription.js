@@ -1,18 +1,11 @@
 import { gql } from 'apollo-boost'
+import { MESSAGE } from './fragments'
 
 export const MESSAGES_SUBSCRIPTION = gql`
   subscription messageSent {
     messageSent {
-      id
-      message
-      sender {
-        id
-        name
-      }
-      receiver {
-        id
-        name
-      }
+      ...Message
     }
   }
+  ${MESSAGE}
 `

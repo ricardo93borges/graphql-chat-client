@@ -1,18 +1,11 @@
 import { gql } from 'apollo-boost'
+import { MESSAGE } from './fragments'
 
 export const SEND_MESSAGE = gql`
   mutation sendMessage($sendMessageInput: SendMessageInput!) {
     sendMessage(sendMessageInput: $sendMessageInput){
-      id
-      message
-      sender {
-        id
-        name
-      }
-      receiver {
-        id
-        name
-      }
+      ...Message
     }
   }
+  ${MESSAGE}
 `
