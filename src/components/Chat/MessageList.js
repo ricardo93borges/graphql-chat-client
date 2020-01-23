@@ -6,12 +6,12 @@ export const MessageList = (props) => {
     props.subscribeToNewMessages()
   }, [])
 
-  if (!props.data)
-    return <p>loading...</p>
+  if (!props.data) { return <p>loading...</p> }
 
   return props.data.messages.map(message =>
     <MessageItem
       key={message.id}
-      message={message} />
+      message={message}
+    />
   )
 }

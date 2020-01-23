@@ -1,7 +1,7 @@
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import { gql } from 'apollo-boost'
-import { MessageList } from './MessageList';
+import { MessageList } from './MessageList'
 
 const MESSAGES = gql`
 {
@@ -35,14 +35,14 @@ const MESSAGES_SUBSCRIPTION = gql`
       }
     }
   }
-`;
+`
 
 const handleNewMessage = (subscribeToMore) => {
   subscribeToMore({
     document: MESSAGES_SUBSCRIPTION,
     updateQuery: (prev, { subscriptionData }) => {
-      if (!subscriptionData.data) return prev;
-      const newFeedItem = subscriptionData.data.messageSent;
+      if (!subscriptionData.data) return prev
+      const newFeedItem = subscriptionData.data.messageSent
 
       return {
         messages: [...prev.messages, newFeedItem]

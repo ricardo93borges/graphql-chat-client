@@ -1,9 +1,9 @@
 import React from 'react'
-import "milligram"
+import 'milligram'
 import { Chat } from './components/Chat'
 import { SendForm } from './components/SendForm'
 
-function App() {
+function App () {
   return (
     <div className='App'>
       <Chat />
