@@ -1,41 +1,8 @@
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
-import { gql } from 'apollo-boost'
-import { MessageList } from './MessageList'
-
-const MESSAGES = gql`
-{
-  messages {
-    id
-    message
-    sender {
-      id
-      name
-    }
-    receiver {
-      id
-      name
-    }
-  }
-}
-`
-
-const MESSAGES_SUBSCRIPTION = gql`
-  subscription messageSent {
-    messageSent {
-      id
-      message
-      sender {
-        id
-        name
-      }
-      receiver {
-        id
-        name
-      }
-    }
-  }
-`
+import { MESSAGES } from './queries'
+import { MESSAGES_SUBSCRIPTION } from './subscription'
+import { MessageList } from './components/MessageList'
 
 const handleNewMessage = (subscribeToMore) => {
   subscribeToMore({

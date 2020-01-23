@@ -1,7 +1,7 @@
 import React from 'react'
 import 'milligram'
-import { Chat } from './components/Chat'
-import { SendForm } from './components/SendForm'
+import { Chat } from './features/chat'
+import { SendForm } from './features/chat/components/SendForm'
 
 function App () {
   return (
