@@ -2,10 +2,10 @@ import { gql } from 'apollo-boost'
 import { MESSAGE } from './fragments'
 
 export const MESSAGES = gql`
-{
-  messages {
-    ...Message
-  }
-}
-${MESSAGE}
+  query Messages($cursor: String!) {
+    messages(cursor: $cursor) {
+      ...Message
+    }
+  } 
+  ${MESSAGE}
 `

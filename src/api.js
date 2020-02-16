@@ -8,12 +8,18 @@ import { split } from 'apollo-link'
 const wsLink = new WebSocketLink({
   uri: process.env.REACT_APP_API_WS_URL,
   options: {
-    reconnect: true
-  }
+    reconnect: true,
+    connectionParams: () => ({
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }),
+  },
 })
 
 const httpLink = new HttpLink({
-  uri: process.env.REACT_APP_API_URL
+  uri: process.env.REACT_APP_API_URL,
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem('token')}`
+  }
 })
 
 const link = split(({ query }) => {
@@ -23,8 +29,8 @@ const link = split(({ query }) => {
     definition.operation === 'subscription'
   )
 },
-wsLink,
-httpLink
+  wsLink,
+  httpLink
 )
 
 export const client = new ApolloClient({

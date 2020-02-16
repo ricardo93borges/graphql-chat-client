@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/react-hooks'
 import { MESSAGES } from './queries'
 import { MESSAGES_SUBSCRIPTION } from './subscription'
 import { MessageList } from './components/MessageList'
+import { SendForm } from './components/SendForm'
 
 const handleNewMessage = (subscribeToMore) => {
   subscribeToMore({
@@ -19,12 +20,19 @@ const handleNewMessage = (subscribeToMore) => {
 }
 
 export const Chat = () => {
-  const { subscribeToMore, ...result } = useQuery(MESSAGES)
+  const { subscribeToMore, ...result } = useQuery(MESSAGES, {
+    variables: {
+      cursor: '0',
+    }
+  })
 
   return (
-    <MessageList
-      {...result}
-      subscribeToNewMessages={() => handleNewMessage(subscribeToMore)}
-    />
+    <>
+      <MessageList
+        {...result}
+        subscribeToNewMessages={() => handleNewMessage(subscribeToMore)}
+      />
+      <SendForm />
+    </>
   )
 }

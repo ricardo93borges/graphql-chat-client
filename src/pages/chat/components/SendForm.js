@@ -15,7 +15,6 @@ export const SendForm = () => {
           variables: {
             sendMessageInput: {
               message: input.value,
-              senderId: '1',
               receiverId: '2'
             }
           }

@@ -2,10 +2,15 @@ import React from 'react'
 import { useMutation } from '@apollo/react-hooks'
 import { LOGIN } from './mutations'
 
-export const Login = () => {
+export const Login = ({ history }) => {
   let email
   let password
   const [login, { data }] = useMutation(LOGIN)
+
+  if (data) {
+    localStorage.setItem('token', data.login)
+    history.push('/')
+  }
 
   return (
     <div className='container'>
@@ -43,7 +48,6 @@ export const Login = () => {
                   onClick={e => {
                     e.preventDefault()
                     login({ variables: { email: email.value, password: password.value } })
-                    console.log('> data', data)
                   }}
                 >
                   Login
