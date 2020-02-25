@@ -2,7 +2,7 @@ import React from 'react'
 import { useMutation } from '@apollo/react-hooks'
 import { SEND_MESSAGE } from '../mutations'
 
-export const SendForm = () => {
+export const SendForm = ({ receiverId }) => {
   let input
   const [sendMessage] = useMutation(SEND_MESSAGE)
 
@@ -14,8 +14,8 @@ export const SendForm = () => {
         sendMessage({
           variables: {
             sendMessageInput: {
-              message: input.value,
-              receiverId: '2'
+              receiverId,
+              message: input.value
             }
           }
         })

@@ -11,8 +11,8 @@ const wsLink = new WebSocketLink({
     reconnect: true,
     connectionParams: () => ({
       Authorization: `Bearer ${localStorage.getItem('token')}`
-    }),
-  },
+    })
+  }
 })
 
 const httpLink = new HttpLink({
@@ -29,8 +29,8 @@ const link = split(({ query }) => {
     definition.operation === 'subscription'
   )
 },
-  wsLink,
-  httpLink
+wsLink,
+httpLink
 )
 
 export const client = new ApolloClient({

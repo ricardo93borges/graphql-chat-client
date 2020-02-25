@@ -8,7 +8,7 @@ export const MessageList = (props) => {
 
   if (!props.data) { return <p>loading...</p> }
 
-  return props.data.messages.map(message =>
+  return props.data.conversation.map(message =>
     <MessageItem
       key={message.id}
       message={message}

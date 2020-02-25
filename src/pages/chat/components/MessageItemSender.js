@@ -8,8 +8,9 @@ export const MessageItemSender = (props) => (
       color: '#FFF',
       marginBottom: 5,
       borderRadius: 12,
-      borderTopLeftRadius: 0,
-    }}>
+      borderTopLeftRadius: 0
+    }}
+  >
     {props.children}
   </div>
 )

@@ -12,17 +12,17 @@ export const Contacts = ({ history }) => {
   return (
     <>
       {data.users.map(user =>
-        <div className="row">
-          <div className="column"></div>
-          <div className="column" style={{ textAlign: 'center' }}>
+        <div key={user.id} className='row'>
+          <div className='column' />
+          <div className='column' style={{ textAlign: 'center' }}>
             <button
-              className="button button-outline"
+              className='button button-outline'
               onClick={() => history.push(`/chat/${user.id}`)}
             >
               {user.name}
             </button>
           </div>
-          <div className="column"></div>
+          <div className='column' />
         </div>
       )}
     </>

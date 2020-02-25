@@ -9,3 +9,12 @@ export const MESSAGES = gql`
   } 
   ${MESSAGE}
 `
+
+export const CONVERSATION = gql`
+  query Conversation($cursor: String!, $receiverId: ID!) {
+    conversation(cursor: $cursor, receiverId: $receiverId) {
+      ...Message
+    }
+  } 
+  ${MESSAGE}
+`

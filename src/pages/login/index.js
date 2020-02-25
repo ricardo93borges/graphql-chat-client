@@ -24,7 +24,7 @@ export const Login = ({ history }) => {
             <div className='column column-50 column-offset-25'>
               <label>
                 Email
-                  <input
+                <input
                   type='email'
                   name='email'
                   ref={node => { email = node }}
@@ -36,7 +36,7 @@ export const Login = ({ history }) => {
             <div className='column column-50 column-offset-25'>
               <label>
                 Password
-                  <input
+                <input
                   type='password'
                   name='email'
                   ref={node => { password = node }}
@@ -54,7 +54,7 @@ export const Login = ({ history }) => {
                 }}
               >
                 Login
-                </button>
+              </button>
             </div>
           </div>
         </form>
