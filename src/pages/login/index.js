@@ -13,7 +13,7 @@ export const Login = ({ history }) => {
 
   if (data) {
     localStorage.setItem('token', data.login)
-    history.push('/')
+    history.push('/contacts')
   }
 
   return (

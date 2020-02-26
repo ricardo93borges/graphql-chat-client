@@ -29,10 +29,20 @@ export const Chat = ({ match }) => {
 
   return (
     <>
-      <MessageList
-        {...result}
-        subscribeToNewMessages={() => handleNewMessage(subscribeToMore)}
-      />
+      <div
+        className='row'
+        style={{
+          height: window.innerHeight - 250,
+          overflowY: 'scroll',
+          marginBottom: 10
+        }}>
+        <div className='column'>
+          <MessageList
+            {...result}
+            subscribeToNewMessages={() => handleNewMessage(subscribeToMore)}
+          />
+        </div>
+      </div>
       <SendForm receiverId={match.params.id} />
     </>
   )

@@ -7,22 +7,26 @@ export const SendForm = ({ receiverId }) => {
   const [sendMessage] = useMutation(SEND_MESSAGE)
 
   return (
-    <label>
-      <input type='text' ref={node => { input = node }} />
-      <button onClick={e => {
-        e.preventDefault()
-        sendMessage({
-          variables: {
-            sendMessageInput: {
-              receiverId,
-              message: input.value
+    <div className='row'>
+      <div className='column column-80'>
+        <input type='text' ref={node => { input = node }} />
+      </div>
+      <div className='column column-20'>
+        <button onClick={e => {
+          e.preventDefault()
+          sendMessage({
+            variables: {
+              sendMessageInput: {
+                receiverId,
+                message: input.value
+              }
             }
-          }
-        })
-      }}
-      >
-        Send
+          })
+        }}
+        >
+          Send
       </button>
-    </label>
+      </div>
+    </div>
   )
 }
