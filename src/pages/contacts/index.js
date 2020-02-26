@@ -3,7 +3,13 @@ import { useQuery } from '@apollo/react-hooks'
 import { USERS } from './queries'
 
 export const Contacts = ({ history }) => {
-  const { loading, error, data } = useQuery(USERS)
+  const { loading, error, data } = useQuery(USERS, {
+    context: {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    }
+  })
 
   if (loading) return 'loading ...'
 

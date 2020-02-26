@@ -17,6 +17,7 @@ const wsLink = new WebSocketLink({
 
 const httpLink = new HttpLink({
   uri: process.env.REACT_APP_API_URL,
+  // It is possible to set headers here too:
   headers: {
     Authorization: `Bearer ${localStorage.getItem('token')}`
   }
@@ -29,8 +30,8 @@ const link = split(({ query }) => {
     definition.operation === 'subscription'
   )
 },
-wsLink,
-httpLink
+  wsLink,
+  httpLink
 )
 
 export const client = new ApolloClient({

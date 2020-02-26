@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MessageItemSender } from './MessageItemSender'
 import { MessageItemReceiver } from './MessageItemReceiver'
 import { decode } from '../../../session'
 
-const user = decode()
-
 export const MessageList = (props) => {
+  const [user, setUser] = useState(null)
+
   useEffect(() => {
+    setUser(decode())
     props.subscribeToNewMessages()
   }, [])
 

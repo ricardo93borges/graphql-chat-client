@@ -20,12 +20,19 @@ const handleNewMessage = (subscribeToMore) => {
 }
 
 export const Chat = ({ match }) => {
-  const { subscribeToMore, ...result } = useQuery(CONVERSATION, {
+  const options = {
+    context: {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    },
     variables: {
       cursor: '0',
       receiverId: match.params.id
-    }
-  })
+    },
+  }
+
+  const { subscribeToMore, ...result } = useQuery(CONVERSATION, options)
 
   return (
     <>

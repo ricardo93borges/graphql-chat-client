@@ -9,7 +9,7 @@ import { Contacts } from './pages/contacts'
 export const App = () => {
   return (
     <div className='container'>
-      <BrowserRouter>
+      <BrowserRouter forceRefresh={true}>
         <Header />
         <Switch>
           <Route exact path='/' component={Login} />
